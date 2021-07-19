@@ -1,0 +1,46 @@
+{
+  "Books": {
+    "BarCode": {
+      "9789863843344": {
+        "ISBN": 9789863843344,
+        "Title": "世界大局．地圖全解讀",
+        "URL": "https://www.books.com.tw/products/0010822566",
+        "Icon": null,
+        "Count": 0,
+        "Timestamp": 9789863843344
+      },
+      "9789578787322": {
+        "ISBN": 9789578787322,
+        "Title": "一日三餐減醣料理：單週無壓力消失2kg的美味計劃，72道低醣速瘦搭配餐",
+        "URL": "https://www.books.com.tw/products/0010789764",
+        "Icon": null,
+        "Count": 0,
+        "Timestamp": 9789863843344
+      },
+      "9789573285304": {
+        "ISBN": 9789573285304,
+        "Title": "表裡不一的動物超棒的！圖鑑 (電子書)",
+        "URL": "https://www.books.com.tw/products/E050045960",
+        "Icon": null,
+        "Count": 0,
+        "Timestamp": 9789863843344
+      },
+      "9789571377995": {
+        "ISBN": 9789571377995,
+        "Title": "愛對了，每天都是情人節：以「16型愛情氣質」探尋屬於你的美好伴侶",
+        "URL": "https://www.books.com.tw/products/0010822829",
+        "Icon": null,
+        "Count": 0,
+        "Timestamp": 9789863843344
+      },
+      "9787111617976": {
+        "ISBN": 9787111617976,
+        "Title": "Flutter技術入門與實戰",
+        "URL": "https://www.books.com.tw/products/CN11615679",
+        "Icon": null,
+        "Count": 0,
+        "Timestamp": 9789863843344
+      }
+    }
+  }
+}

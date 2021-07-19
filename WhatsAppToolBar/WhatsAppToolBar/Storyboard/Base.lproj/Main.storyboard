@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K8f-Ot-ZH7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ToolBar-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhatsAppToolBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4bz-1s-FiW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qKc-rZ-bZN">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="HOB-d7-SpF" customClass="MyCollectionViewCell" customModule="WhatsAppToolBar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OxY-ke-Ghr">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hK0-jE-5eK">
+                                <rect key="frame" x="0.0" y="608" width="414" height="200"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2te-zg-Nhm">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem title="設定值" id="RIc-dB-rQK"/>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="8Qs-ym-7RK"/>
+                                    <constraint firstItem="2te-zg-Nhm" firstAttribute="leading" secondItem="hK0-jE-5eK" secondAttribute="leading" id="eUp-La-2q3"/>
+                                    <constraint firstItem="2te-zg-Nhm" firstAttribute="top" secondItem="hK0-jE-5eK" secondAttribute="top" id="ntJ-Sb-I72"/>
+                                    <constraint firstAttribute="trailing" secondItem="2te-zg-Nhm" secondAttribute="trailing" id="xeR-qM-5vk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="AccentColor"/>
+                        <constraints>
+                            <constraint firstItem="4bz-1s-FiW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0vc-Lz-iwL"/>
+                            <constraint firstItem="4bz-1s-FiW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7Wz-N3-Wrp"/>
+                            <constraint firstAttribute="bottom" secondItem="hK0-jE-5eK" secondAttribute="bottom" id="DSg-Ac-DNn"/>
+                            <constraint firstItem="hK0-jE-5eK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FeL-cz-JZm"/>
+                            <constraint firstItem="hK0-jE-5eK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Q8p-xM-l2a"/>
+                            <constraint firstItem="hK0-jE-5eK" firstAttribute="top" secondItem="4bz-1s-FiW" secondAttribute="bottom" id="cK5-vp-t4Q"/>
+                            <constraint firstAttribute="trailing" secondItem="hK0-jE-5eK" secondAttribute="trailing" id="jSC-xS-hDJ"/>
+                            <constraint firstItem="4bz-1s-FiW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mPP-vC-dEc"/>
+                            <constraint firstAttribute="bottom" secondItem="hK0-jE-5eK" secondAttribute="bottom" id="omg-dg-xXa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ToolBar" id="8Rr-hh-dA0">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="P5z-jG-ebP">
+                            <connections>
+                                <action selector="changeToolBar:" destination="BYZ-38-t0r" id="AVW-Qi-EQI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myCollectionView" destination="4bz-1s-FiW" id="N1s-85-C0O"/>
+                        <outlet property="myToolbar" destination="2te-zg-Nhm" id="6b9-J3-Iuq"/>
+                        <outlet property="toolbarHeightConstraint" destination="8Qs-ym-7RK" id="IJ2-c4-1no"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957.9710144927537" y="118.52678571428571"/>
+        </scene>
+        <!--NULL-->
+        <scene sceneID="hBi-HT-KD7">
+            <objects>
+                <viewController id="fFn-x8-z63" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S6M-Sj-rdk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="74U-df-Bfl"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="NULL" image="folder.fill" catalog="system" id="3si-zo-uXF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3M-V2-R9b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="921"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9gr-0u-P5q">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="K8f-Ot-ZH7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pbq-ma-ypj">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ys1-yN-ZBs" kind="relationship" relationship="viewControllers" id="6iB-H6-SO1"/>
+                        <segue destination="fFn-x8-z63" kind="relationship" relationship="viewControllers" id="3Zk-Ns-zAc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pdw-g3-EEj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
+        </scene>
+        <!--DEMO-->
+        <scene sceneID="TVG-rh-FMv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ys1-yN-ZBs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="DEMO" image="pencil.circle.fill" catalog="system" id="huA-CC-F05"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nhE-UA-XLN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vjW-DB-v74">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mhN-rF-D16"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F0D-Nf-BdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

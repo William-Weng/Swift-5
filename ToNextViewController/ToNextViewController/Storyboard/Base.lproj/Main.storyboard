@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="ToNextViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JYe-GM-KFE">
+                                <rect key="frame" x="40" y="234" width="240" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzY-N9-Dak">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                        <color key="backgroundColor" red="0.39216148839999998" green="1" blue="0.165694906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="利用Segue到下一頁 (自動)"/>
+                                        <connections>
+                                            <segue destination="Ya3-Pq-5y3" kind="show" identifier="FirstSegueManual" id="bS7-Wb-Ch9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRM-1r-cWl">
+                                        <rect key="frame" x="0.0" y="35" width="240" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="利用Segue到下一頁 (手動)"/>
+                                        <connections>
+                                            <action selector="goToNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ekJ-U8-mOs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQj-ha-3Ku">
+                                        <rect key="frame" x="0.0" y="70" width="240" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="利用present()到下一頁 (手動)"/>
+                                        <connections>
+                                            <action selector="goToNextViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5O-GJ-rZI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.55640617869999998" green="0.65932444980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JYe-GM-KFE" secondAttribute="trailing" constant="40" id="0IN-Eb-tGW"/>
+                            <constraint firstItem="JYe-GM-KFE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9jH-dE-rA7"/>
+                            <constraint firstItem="JYe-GM-KFE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="lhN-a1-NCD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="Ya3-Pq-5y3" kind="show" identifier="FirstSegueManual" id="Mtb-M0-r5c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="31"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="RMJ-G2-ekY">
+            <objects>
+                <viewController id="HyL-QB-LNL" customClass="SecondViewController" customModule="ToNextViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ef-3n-uaP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cg5-a6-XRu">
+                                <rect key="frame" x="59.5" y="234" width="201" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoK-FR-q7M">
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
+                                        <color key="backgroundColor" red="0.55640617869999998" green="0.65932444980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="利用Segue到下一頁 (自動)"/>
+                                        <connections>
+                                            <segue destination="shW-eK-JkP" kind="show" id="gj5-Gw-xtF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nE-JG-lxS">
+                                        <rect key="frame" x="0.0" y="35" width="201" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="利用Segue到下一頁 (手動)"/>
+                                        <connections>
+                                            <action selector="goToNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWA-IP-KH4"/>
+                                            <action selector="goToNextViewController:" destination="HyL-QB-LNL" eventType="touchUpInside" id="O47-xa-1FV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jea-8x-1BF">
+                                        <rect key="frame" x="0.0" y="70" width="201" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="利用present()到下一頁 (手動)"/>
+                                        <connections>
+                                            <action selector="goToNextVC:" destination="HyL-QB-LNL" eventType="touchUpInside" id="UrD-QT-HSL"/>
+                                            <action selector="goToNextViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="drb-SV-Mef"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.39216148839999998" green="1" blue="0.165694906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cg5-a6-XRu" firstAttribute="centerY" secondItem="2Ef-3n-uaP" secondAttribute="centerY" id="4Wr-Qk-Y8g"/>
+                            <constraint firstItem="Cg5-a6-XRu" firstAttribute="centerX" secondItem="2Ef-3n-uaP" secondAttribute="centerX" id="ykC-Pu-876"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TmV-ZQ-dcV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4ET-iM-Dnm">
+                        <barButtonItem key="leftBarButtonItem" title="下一頁 (手動)" id="zjJ-fb-I1e">
+                            <connections>
+                                <action selector="goToNextPage:" destination="HyL-QB-LNL" id="nQG-Wc-HNO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="下一頁 (自動)" id="xE1-WJ-5yk">
+                            <connections>
+                                <segue destination="shW-eK-JkP" kind="show" identifier="" id="zQK-Fa-x3t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="shW-eK-JkP" kind="show" identifier="SecondSegueManual" id="BbT-m1-w1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4e-Zk-K3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="724"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aMu-p6-qJy">
+            <objects>
+                <viewController storyboardIdentifier="SecondNextViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="shW-eK-JkP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Ex-U6-RSL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="mR2-gR-CPf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qh-vm-lW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1843" y="724"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cat-aO-Bl7">
+            <objects>
+                <viewController storyboardIdentifier="FirstNextViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ya3-Pq-5y3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OSN-Ra-iwe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.66517727250000003" blue="0.41525638170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="7uj-LM-JS8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Foa-Sw-hcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="31"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v8e-oJ-42C">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oLi-08-uUq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HfL-T6-97x">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HyL-QB-LNL" kind="relationship" relationship="rootViewController" id="q0Y-qs-xco"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jma-bI-DSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="724"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="mxW-wx-ifi">
+            <objects>
+                <viewController id="FpL-a3-Kf0" customClass="ThirdViewController" customModule="ToNextViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7KK-0F-krn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="awV-Sv-laz">
+                                <rect key="frame" x="59.5" y="216.5" width="201" height="135"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olh-mh-mnW">
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="30"/>
+                                        <color key="backgroundColor" red="0.55640617869999998" green="0.65932444980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="利用Segue到下一頁 (自動)"/>
+                                        <connections>
+                                            <segue destination="dZy-OB-qRI" kind="show" id="rkd-pY-sdI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF0-0u-JYh">
+                                        <rect key="frame" x="0.0" y="35" width="201" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="利用Segue到下一頁 (手動)"/>
+                                        <connections>
+                                            <action selector="goToNextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ohq-7H-6LM"/>
+                                            <action selector="goToNextViewController:" destination="HyL-QB-LNL" eventType="touchUpInside" id="H3W-Pe-DsY"/>
+                                            <action selector="goToNextViewController:" destination="FpL-a3-Kf0" eventType="touchUpInside" id="gg2-zV-8Hy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzs-Ck-H4F">
+                                        <rect key="frame" x="0.0" y="70" width="201" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="利用present()到下一頁 (手動)"/>
+                                        <connections>
+                                            <action selector="goToNextVC:" destination="HyL-QB-LNL" eventType="touchUpInside" id="F1S-XZ-pOC"/>
+                                            <action selector="goToNextVC:" destination="FpL-a3-Kf0" eventType="touchUpInside" id="bbS-Mk-JLv"/>
+                                            <action selector="goToNextViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lRT-2D-y00"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pa-22-htg">
+                                        <rect key="frame" x="0.0" y="105" width="201" height="30"/>
+                                        <color key="backgroundColor" red="0.39216148839999998" green="1" blue="0.165694906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="切換Tab"/>
+                                        <connections>
+                                            <action selector="goToNextTab:" destination="FpL-a3-Kf0" eventType="touchUpInside" id="y1v-uW-r08"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.98214744389999997" blue="0.25860543320000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.66517727250000003" blue="0.41525638170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="awV-Sv-laz" firstAttribute="centerY" secondItem="7KK-0F-krn" secondAttribute="centerY" id="EFm-hk-hcG"/>
+                            <constraint firstItem="awV-Sv-laz" firstAttribute="centerX" secondItem="7KK-0F-krn" secondAttribute="centerX" id="ttx-1E-RZq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bwt-Jo-olo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="Jtq-Lf-0hd"/>
+                    <connections>
+                        <segue destination="dZy-OB-qRI" kind="show" identifier="ThirdSegueManual" id="YkW-BX-WDE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BoW-UG-GfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="1461"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jCb-cj-j29">
+            <objects>
+                <viewController storyboardIdentifier="ThirdNextViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dZy-OB-qRI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dtn-z9-BO3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.39216148839999998" green="1" blue="0.165694906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="YrX-aB-8cP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="nuq-nm-4WR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfx-wK-GQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="2251"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="EVP-RT-uGl">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wk5-hr-s5W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zlY-Hy-4Am">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="FpL-a3-Kf0" kind="relationship" relationship="viewControllers" id="v7d-zo-Kft"/>
+                        <segue destination="dZy-OB-qRI" kind="relationship" relationship="viewControllers" id="gTE-d6-HPN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghV-U8-a2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="1850"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rkd-pY-sdI"/>
+        <segue reference="bS7-Wb-Ch9"/>
+        <segue reference="BbT-m1-w1x"/>
+    </inferredMetricsTieBreakers>
+</document>

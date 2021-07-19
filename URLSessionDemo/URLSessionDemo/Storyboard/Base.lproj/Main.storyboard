@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g15-eg-eLi">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="URLSessionDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Nt-nY-7I6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="2"/>
+                                <color key="tintColor" red="0.92156862750000001" green="0.066666666669999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wc4-aG-4Oc">
+                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="DMEO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="14p-Fe-YnA">
+                                <rect key="frame" x="0.0" y="90" width="414" height="772"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="14p-Fe-YnA" firstAttribute="top" secondItem="4Nt-nY-7I6" secondAttribute="bottom" id="2re-yy-SEz"/>
+                            <constraint firstItem="4Nt-nY-7I6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="56G-9d-quZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="14p-Fe-YnA" secondAttribute="bottom" id="AVB-Js-2vw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="14p-Fe-YnA" secondAttribute="trailing" id="GU4-Yr-AHA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wc4-aG-4Oc" secondAttribute="bottom" id="OiR-ys-GDC"/>
+                            <constraint firstAttribute="trailing" secondItem="4Nt-nY-7I6" secondAttribute="trailing" id="SzR-zV-WwD"/>
+                            <constraint firstItem="14p-Fe-YnA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ccN-gl-gA9"/>
+                            <constraint firstItem="Wc4-aG-4Oc" firstAttribute="top" secondItem="4Nt-nY-7I6" secondAttribute="bottom" id="lby-WH-U3O"/>
+                            <constraint firstItem="Wc4-aG-4Oc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lwV-ki-dfO"/>
+                            <constraint firstItem="4Nt-nY-7I6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="taL-lS-GhM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wc4-aG-4Oc" secondAttribute="trailing" id="vy3-Mc-JrO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YF3-qm-XRj">
+                        <leftBarButtonItems>
+                            <barButtonItem title="下載圖片" id="HUk-UN-Osm">
+                                <connections>
+                                    <action selector="testURLDownload:" destination="BYZ-38-t0r" id="vrw-I1-4Cm"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="上傳圖片" id="PaQ-OI-pbZ">
+                                <connections>
+                                    <action selector="testURLUpload:" destination="BYZ-38-t0r" id="bfJ-5O-K0G"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="API" id="cWQ-u9-IZ7">
+                            <connections>
+                                <action selector="testURLRequest:" destination="BYZ-38-t0r" id="7ep-C6-lK4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myImageView" destination="Wc4-aG-4Oc" id="HWZ-on-lrl"/>
+                        <outlet property="myProgressView" destination="4Nt-nY-7I6" id="awl-1I-lhq"/>
+                        <outlet property="myTextField" destination="14p-Fe-YnA" id="f4F-SV-9dD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="663.768115942029" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ceA-VC-lLQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g15-eg-eLi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ks9-Q5-qyr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fWh-R1-J1P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oG7-9B-NQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246.37681159420291" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AVFoundationVideo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-TX-X8D">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="KZZ-c2-BdF">
+                                <rect key="frame" x="40" y="806" width="334" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDP-Ta-8Sh">
+                                        <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MDP-Ta-8Sh" secondAttribute="height" id="pQb-Wz-W6k"/>
+                                        </constraints>
+                                        <state key="normal" image="shutter"/>
+                                        <connections>
+                                            <action selector="switchFunction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UvO-WY-AHc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-Gf-ZcL">
+                                        <rect key="frame" x="139" y="0.0" width="56" height="56"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ICp-Gf-ZcL" secondAttribute="height" id="xOI-Cc-6zt"/>
+                                        </constraints>
+                                        <state key="normal" image="start"/>
+                                        <connections>
+                                            <action selector="captureMedia:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4M-3X-OFD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-ea-n4A">
+                                        <rect key="frame" x="278" y="0.0" width="56" height="56"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="zuC-ea-n4A" secondAttribute="height" id="X11-SY-uZW"/>
+                                        </constraints>
+                                        <state key="normal" image="switch_camera"/>
+                                        <connections>
+                                            <action selector="toggleCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rcO-2G-XIA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="F1P-n4-50u"/>
+                                    <constraint firstItem="MDP-Ta-8Sh" firstAttribute="width" secondItem="MDP-Ta-8Sh" secondAttribute="height" id="FQC-du-0Et"/>
+                                    <constraint firstItem="zuC-ea-n4A" firstAttribute="width" secondItem="zuC-ea-n4A" secondAttribute="height" id="nYH-Ff-rEl"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0v-Be-ZcR">
+                                <rect key="frame" x="171.5" y="54" width="71.5" height="22.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name=".SFNS-Regular" family=".SF NS" pointSize="20"/>
+                                <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yP0-Yi-iGC">
+                                <rect key="frame" x="343" y="66" width="51" height="31"/>
+                                <connections>
+                                    <action selector="showFilterImageView:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qrv-8v-cio"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frp-Wa-95O">
+                                <rect key="frame" x="22" y="60.5" width="42.5" height="42.5"/>
+                                <state key="normal" image="filter"/>
+                                <connections>
+                                    <action selector="switchFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nd2-2S-x9E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yP0-Yi-iGC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="2eg-gr-v3C"/>
+                            <constraint firstItem="1pZ-TX-X8D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5WS-CD-fSd"/>
+                            <constraint firstItem="j0v-Be-ZcR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="5il-Ap-dcq"/>
+                            <constraint firstItem="KZZ-c2-BdF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ebt-YV-RfQ"/>
+                            <constraint firstItem="Frp-Wa-95O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="NUO-pW-7OF"/>
+                            <constraint firstItem="KZZ-c2-BdF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="NtU-PM-0fo"/>
+                            <constraint firstItem="1pZ-TX-X8D" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="OWH-fy-x9L"/>
+                            <constraint firstItem="Frp-Wa-95O" firstAttribute="centerY" secondItem="yP0-Yi-iGC" secondAttribute="centerY" id="PnG-9V-weo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yP0-Yi-iGC" secondAttribute="trailing" constant="22" id="ScO-ey-83E"/>
+                            <constraint firstItem="KZZ-c2-BdF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Udl-dQ-HTk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KZZ-c2-BdF" secondAttribute="trailing" constant="40" id="eU6-en-Ql5"/>
+                            <constraint firstItem="1pZ-TX-X8D" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="htD-Ya-wyg"/>
+                            <constraint firstItem="1pZ-TX-X8D" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="pDX-mX-Ezp"/>
+                            <constraint firstItem="j0v-Be-ZcR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qdf-7F-Cmb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonStackView" destination="KZZ-c2-BdF" id="XJd-Os-I9u"/>
+                        <outlet property="filterMenuButton" destination="Frp-Wa-95O" id="lcE-7a-4rQ"/>
+                        <outlet property="filterSwitch" destination="yP0-Yi-iGC" id="Lbv-jz-brf"/>
+                        <outlet property="filteredImageView" destination="1pZ-TX-X8D" id="xYC-JH-XZf"/>
+                        <outlet property="startButton" destination="ICp-Gf-ZcL" id="lA3-qX-JsX"/>
+                        <outlet property="switchButton" destination="MDP-Ta-8Sh" id="Ai6-mL-But"/>
+                        <outlet property="toggleCameraButton" destination="zuC-ea-n4A" id="8ba-St-meb"/>
+                        <outlet property="videoTimeLabel" destination="j0v-Be-ZcR" id="mDh-rk-pEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="86.383928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="filter" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="shutter" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="start" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="switch_camera" width="42.666667938232422" height="42.666667938232422"/>
+    </resources>
+</document>
