@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyCollectionReusableBadge" customModule="CompositionalLayout" customModuleProvider="target">
+            <connections>
+                <outlet property="myLabel" destination="LFk-fa-RHM" id="sJY-h8-iLT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="244"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSF-iL-Bwf">
+                    <rect key="frame" x="0.0" y="0.0" width="364" height="244"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-fa-RHM">
+                            <rect key="frame" x="167.5" y="111.5" width="29" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstItem="LFk-fa-RHM" firstAttribute="centerX" secondItem="rSF-iL-Bwf" secondAttribute="centerX" id="LSG-MC-BHD"/>
+                        <constraint firstItem="LFk-fa-RHM" firstAttribute="centerY" secondItem="rSF-iL-Bwf" secondAttribute="centerY" id="xeb-Mw-bTT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="rSF-iL-Bwf" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="2fl-xk-88B"/>
+                <constraint firstAttribute="bottom" secondItem="rSF-iL-Bwf" secondAttribute="bottom" id="WU0-Fe-vP4"/>
+                <constraint firstAttribute="trailing" secondItem="rSF-iL-Bwf" secondAttribute="trailing" id="gc9-e0-8GH"/>
+                <constraint firstItem="rSF-iL-Bwf" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="ylp-59-R8t"/>
+            </constraints>
+            <point key="canvasLocation" x="169.56521739130437" y="204.91071428571428"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
