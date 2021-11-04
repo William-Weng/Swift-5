@@ -12,10 +12,11 @@ final class MyCollectionViewCell: UICollectionViewCell, CellReusable {
     
     @IBOutlet weak var myLabel: UILabel!
     
-    static var dataSource = [1...20]._repeating(text: " - 測試用")
+    static var dataSource = [1...20]._repeating(text: "")
     
     func configure(with indexPath: IndexPath) {
         myLabel.text = Self.dataSource[safe: indexPath.row]
         self.backgroundColor = (indexPath.row % 2 == 0) ? .lightGray : .green
     }
 }
+

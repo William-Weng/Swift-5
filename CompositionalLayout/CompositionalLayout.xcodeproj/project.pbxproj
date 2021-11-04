@@ -60,9 +60,9 @@
 		3D4905E92730D4C000A436DC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				3D4905F72731069F00A436DC /* CompositionalLayout.swift */,
 				3D4905EA2730D4DB00A436DC /* Extension+.swift */,
 				3D4905EC2730D58700A436DC /* Protocol+.swift */,
-				3D4905F72731069F00A436DC /* CompositionalLayout.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";

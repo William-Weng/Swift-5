@@ -12,25 +12,31 @@ final class ViewController: UIViewController {
 
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    private let badgeViewKey = "First"
+    private let badgeViewKey = "-TableView"
     private let contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
     private let edgeInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
     private let backgroundInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-    private let firstBadgeSetting: CompositionalLayout.WW.BadgeSetting = (key: "First", size: (width: .absolute(20), height: .absolute(20)), zIndex: 100,
+    private let firstBadgeSetting: CompositionalLayout.WW.BadgeSetting = (key: "-TableView", size: (width: .absolute(20), height: .absolute(20)), zIndex: 100,
 containerAnchor: (edges: [.top, .leading], absoluteOffset: CGPoint(x: 10, y: 10)), itemAnchor: (edges: [.bottom, .trailing], absoluteOffset: CGPoint(x: 0, y: 0)))
-        
+    
+    private var currentLayoutIndex = 0
+    
+    enum LayoutType: Int, CaseIterable {
+        case tableView
+        case photoAlbum
+        case bookshelf
+        case vendingMachine
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initSetting()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-    
     @IBAction func changeLayout(_ sender: UIBarButtonItem) {
-        myCollectionView.setCollectionViewLayout(bookshelfLayout()!, animated: false)
-        myCollectionView.reloadData()
+        currentLayoutIndex += 1
+        if (currentLayoutIndex > (LayoutType.allCases.count - 1)) { currentLayoutIndex = 0 }
+        initSetting()
     }
 }
 
@@ -45,7 +51,7 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView._reusableCell(at: indexPath) as MyCollectionViewCell
         cell.configure(with: indexPath)
-        
+                
         return cell
     }
     
@@ -79,33 +85,33 @@ extension ViewController {
     /// 初始化設定
     private func initSetting() {
         
-        guard let layout = vendingMachineLayout(),
-              let newLayout = layoutRegister(layout)
+        guard let layoutType = LayoutType.allCases[safe: currentLayoutIndex],
+              let layout = layoutMaker(with: layoutType)
         else {
             return
         }
+
+        title = "\(layoutType)"
         
         myCollectionView._delegateAndDataSource(with: self)
-        myCollectionView.setCollectionViewLayout(newLayout, animated: true)
+        myCollectionView.setCollectionViewLayout(layout, animated: true)
     }
 }
 
 // MARK: - CompositionalLayout
 extension ViewController {
-    
-    /// 註冊CollectionReusableView
-    /// - Parameter layout:
-    /// - Returns: UICollectionViewLayout?
-    private func layoutRegister(_ layout: UICollectionViewCompositionalLayout?) -> UICollectionViewCompositionalLayout? {
+
+    /// Layout選擇器
+    /// - Parameter type: LayoutType
+    /// - Returns: UICollectionViewCompositionalLayout?
+    private func layoutMaker(with type: LayoutType) -> UICollectionViewCompositionalLayout? {
         
-        let newLayout = layout?
-            ._register(with: myCollectionView, supplementaryViewClass: MyCollectionReusableHeader.self, ofKind: .header)
-            ._register(with: myCollectionView, supplementaryViewClass: MyCollectionReusableHeader.self, ofKind: .footer)
-            ._register(with: myCollectionView, supplementaryViewClass: MyCollectionReusableBadge.self, ofKind: .badge(key: badgeViewKey))
-            ._register(with: MyCollectionReusableDecoration.self, ofKind: .decoration)
-            ._register(with: MyCollectionReusableBadge.self, ofKind: .badge(key: badgeViewKey))
-        
-        return newLayout
+        switch type {
+        case .tableView: return tableViewLayout()
+        case .photoAlbum: return photoAlbumLayout()
+        case .bookshelf: return bookshelfLayout()
+        case .vendingMachine: return vendingMachineLayout()
+        }
     }
     
     /// 長得像UITableView的Layout
@@ -113,7 +119,7 @@ extension ViewController {
     private func tableViewLayout() -> UICollectionViewCompositionalLayout? {
         
         let layout = CompositionalLayout.ww
-            .addItem(width: .fractionalWidth(1.0), height: .absolute(120), contentInsets: edgeInsets, badgeSetting: nil)
+            .addItem(width: .fractionalWidth(1.0), height: .absolute(120), contentInsets: edgeInsets, badgeSetting: firstBadgeSetting)
             .setDecoration(contentInsets: backgroundInsets)
             .setGroup(width: .fractionalWidth(1.0), height: .absolute(120), scrollingDirection: .horizontal)
             .setSection(scrollingBehavior: .none, contentInsets: contentInsets)
@@ -143,14 +149,17 @@ extension ViewController {
     }
     
     /// 長得像書櫃的Layout
+    /// - Parameter count: 一頁要顯示幾本
     /// - Returns: UICollectionViewLayout?
-    private func bookshelfLayout() -> UICollectionViewCompositionalLayout? {
+    private func bookshelfLayout(with count: CGFloat = 4.0) -> UICollectionViewCompositionalLayout? {
+        
+        let contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 375/2 - 375/2/count, bottom: 5, trailing: 375/2/count)
         
         let layout = CompositionalLayout.ww
             .addItem(width: .fractionalWidth(1.0), height: .absolute(120), contentInsets: edgeInsets, badgeSetting: nil)
             .setDecoration(contentInsets: backgroundInsets)
-            .setGroup(width: .fractionalWidth(1/4), height: .absolute(120), scrollingDirection: .vertical)
-            .setSection(scrollingBehavior: .continuous, contentInsets: contentInsets)
+            .setGroup(width: .fractionalWidth(1/count), height: .absolute(120), scrollingDirection: .vertical)
+            .setSection(scrollingBehavior: .continuousGroupLeadingBoundary, contentInsets: contentInsets)
             .setHeader(width: .fractionalWidth(1.0), height: .absolute(16))
             .setFooter(width: .fractionalWidth(0.5), height: .absolute(16))
             .build()
@@ -163,9 +172,9 @@ extension ViewController {
     private func vendingMachineLayout() -> UICollectionViewCompositionalLayout? {
         
         let layout = CompositionalLayout.ww
-            .addItem(width: .fractionalWidth(1.0), height: .absolute(40), contentInsets: edgeInsets, badgeSetting: nil)
-            .addItem(width: .fractionalWidth(1.0), height: .absolute(40), contentInsets: edgeInsets, badgeSetting: nil)
-            .addItem(width: .fractionalWidth(1.0), height: .absolute(40), contentInsets: edgeInsets, badgeSetting: nil)
+            .addItem(width: .fractionalWidth(1.0), height: .fractionalHeight(1/3), contentInsets: edgeInsets, badgeSetting: nil)
+            .addItem(width: .fractionalWidth(1.0), height: .fractionalHeight(1/3), contentInsets: edgeInsets, badgeSetting: nil)
+            .addItem(width: .fractionalWidth(1.0), height: .fractionalHeight(1/3), contentInsets: edgeInsets, badgeSetting: nil)
             .setDecoration(contentInsets: backgroundInsets)
             .setGroup(width: .fractionalWidth(1/2), height: .absolute(120), scrollingDirection: .vertical)
             .setSection(scrollingBehavior: .continuousGroupLeadingBoundary, contentInsets: contentInsets)
@@ -174,5 +183,20 @@ extension ViewController {
             .build()
         
         return layoutRegister(layout)
+    }
+    
+    /// 註冊CollectionReusableView
+    /// - Parameter layout:
+    /// - Returns: UICollectionViewLayout?
+    private func layoutRegister(_ layout: UICollectionViewCompositionalLayout?) -> UICollectionViewCompositionalLayout? {
+        
+        let newLayout = layout?
+            ._register(with: myCollectionView, supplementaryViewClass: MyCollectionReusableHeader.self, ofKind: .header)
+            ._register(with: myCollectionView, supplementaryViewClass: MyCollectionReusableHeader.self, ofKind: .footer)
+            ._register(with: myCollectionView, supplementaryViewClass: MyCollectionReusableBadge.self, ofKind: .badge(key: badgeViewKey))
+            ._register(with: MyCollectionReusableDecoration.self, ofKind: .decoration)
+            ._register(with: MyCollectionReusableBadge.self, ofKind: .badge(key: badgeViewKey))
+        
+        return newLayout
     }
 }
