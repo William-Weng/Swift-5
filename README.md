@@ -96,3 +96,6 @@
 ## CompositionalLayout - iOS 13 新特性套件化 (單獨是正常的，但要切換的話就怪怪的，待測)
 ![CompositionalLayout - iOS 13 新特性套件化 (單獨是正常的，但要切換的話就怪怪的，待測)](./_Gif_/CompositionalLayout.gif)
 
+## ManualController - UIPageViewController電子書雙頁翻頁
+![ManualController - UIPageViewController電子書雙頁翻頁](./_Gif_/ManualController.gif)
+
