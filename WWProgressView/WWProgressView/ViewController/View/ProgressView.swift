@@ -12,7 +12,14 @@ protocol ProgressViewDeleagte: AnyObject {
         
     typealias ProgressViewInfomation = (text: String?, icon: UIImage?)
     
-    func valueChange(identifier: String, currentValue: CGFloat, maximumValue: CGFloat) -> ProgressViewInfomation
+    /// 值改變的時候
+    /// - Parameters:
+    ///   - identifier: 辨識字
+    ///   - currentValue: 目前的值
+    ///   - maximumValue: 最大值
+    ///   - isVertical: 水平 / 垂直
+    /// - Returns: ProgressViewInfomation
+    func valueChange(identifier: String, currentValue: CGFloat, maximumValue: CGFloat, isVertical: Bool) -> ProgressViewInfomation
 }
 
 @IBDesignable final class ProgressView: UIView {
@@ -22,21 +29,27 @@ protocol ProgressViewDeleagte: AnyObject {
         case segmented(_ count: UInt)
     }
     
-    @IBInspectable var identifier: String = "ProgressView"
+    @IBInspectable var isVertical: Bool = true
     @IBInspectable var currentValue: CGFloat = 0
-    @IBInspectable var labelPosition: CGFloat = 0
     @IBInspectable var iconPosition: CGFloat = 0
     @IBInspectable var cornerRadius: CGFloat = 0
     @IBInspectable var borderWidth: CGFloat = 0
     @IBInspectable var progressColor: UIColor = .clear
     @IBInspectable var borderColor: UIColor = .clear
+    @IBInspectable var identifier: String = "ProgressView"
 
-    @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var displayLabel: UILabel!
-    @IBOutlet weak var displayImageView: UIImageView!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var labelPositionConstraint: NSLayoutConstraint!
     @IBOutlet weak var iconPositionConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var verticalView: UIView!
+    @IBOutlet weak var verticalProgressView: UIView!
+    @IBOutlet weak var verticalDisplayImageView: UIImageView!
+    @IBOutlet weak var verticalConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var horizontalView: UIView!
+    @IBOutlet weak var horizontalProgressView: UIView!
+    @IBOutlet weak var horizontalDisplayImageView: UIImageView!
+    @IBOutlet weak var horizontalConstraint: NSLayoutConstraint!
 
     @IBOutlet var contentView: UIView!
 
@@ -58,14 +71,14 @@ protocol ProgressViewDeleagte: AnyObject {
     override public func draw(_ rect: CGRect) { redrawOnStoryboard() }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { recordStartTouchPoint(touches, with: event) }
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) { updateHeightConstraint(touches, with: event) }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) { touchPoint.start = nil }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) { updateConstraint(touches, with: event, isVertical: isVertical) }
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) { clean() }
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {}
 }
 
 // MARK: - 公開的
 extension ProgressView {
-    
+        
     /// 設定一些初始的文字及圖示
     /// - Parameters:
     ///   - id: 辨識字
@@ -73,14 +86,17 @@ extension ProgressView {
     ///   - font: Label字型
     ///   - icon: 下方的圖示
     ///   - type: 滑動的模式 (連續顯示 / 一段一段顯示)
+    ///   - isVertical: 水平 / 垂直
     public func configure(id: String, initValue: String?, font: UIFont? = .systemFont(ofSize: 36.0), icon: UIImage? = nil, type: ProgressType = .continuous) {
-        
+                
         identifier = id
         progressType = type
-        
+                
         displayLabel.font = font
         displayLabel.text = initValue
-        displayImageView.image = icon
+        
+        verticalDisplayImageView.image = icon
+        horizontalDisplayImageView.image = icon
     }
 }
 
@@ -106,11 +122,19 @@ extension ProgressView {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
         
-        progressView.backgroundColor = progressColor
-        touchPoint.constant = safeTouchPointConstant(currentValue)
-        heightConstraint.constant = touchPoint.constant
+        touchPoint.constant = safeTouchPointConstant(currentValue, isVertical: isVertical)
         iconPositionConstraint.constant = iconPosition
-        labelPositionConstraint.constant = labelPosition
+        
+        verticalView.isHidden = !isVertical
+        horizontalView.isHidden = isVertical
+        
+        if (isVertical) {
+            verticalProgressView.backgroundColor = progressColor
+            verticalConstraint.constant = touchPoint.constant
+        } else {
+            horizontalProgressView.backgroundColor = progressColor
+            horizontalConstraint.constant = touchPoint.constant
+        }
     }
     
     /// 及時畫面重繪 => @IBDesignable
@@ -130,12 +154,13 @@ extension ProgressView {
         guard let touch = touches.first else { return }
         touchPoint.start = touch.location(in: self)
     }
-    
-    /// 更新高度Constraint (range: min~max)
+        
+    /// 更新Constraint (range: min ~ max)
     /// - Parameters:
     ///   - touches: Set<UITouch>
     ///   - event: UIEvent?
-    private func updateHeightConstraint(_ touches: Set<UITouch>, with event: UIEvent?) {
+    ///   - isVertical: 水平 / 垂直
+    private func updateConstraint(_ touches: Set<UITouch>, with event: UIEvent?, isVertical: Bool) {
         
         guard let startTouchPoint = touchPoint.start,
               let endTouchPoint = touches.first?.location(in: self)
@@ -144,56 +169,84 @@ extension ProgressView {
         }
         
         touchPoint.start = endTouchPoint
-        touchPoint.constant += startTouchPoint.y - endTouchPoint.y
-        touchPoint.constant = safeTouchPointConstant(touchPoint.constant)
+        touchPoint.constant += isVertical ? (startTouchPoint.y - endTouchPoint.y) : (endTouchPoint.x - startTouchPoint.x)
+        touchPoint.constant = safeTouchPointConstant(touchPoint.constant, isVertical: isVertical)
+        
+        if (isVertical) {
+            verticalConstraint.constant = safeConstraint(touchPoint.constant, progressType: progressType)
+            valueChangeAction(verticalConstraint.constant, isVertical: isVertical)
+        } else {
+            horizontalConstraint.constant = safeConstraint(touchPoint.constant, progressType: progressType)
+            valueChangeAction(horizontalConstraint.constant, isVertical: isVertical)
+        }
+    }
+    
+    /// 設定數值的安全大小範圍 (顯示的高度) => 0 ~ 最大高度 / 寬度
+    /// - Parameter touchPointConstant: CGFloat
+    /// - Returns: CGFloat
+    private func safeConstraint(_ touchPointConstant: CGFloat, progressType: ProgressType) -> CGFloat {
                 
-        heightConstraint.constant = safeHeightConstraint(touchPoint.constant, progressType: progressType)
-        valueChangeAction(heightConstraint.constant)
+        switch progressType {
+        case .continuous: return safeTouchPointConstant(touchPointConstant, isVertical: isVertical)
+        case .segmented(let count): return safeSegmentedConstraint(count, touchPointConstant: touchPointConstant, isVertical: isVertical)
+        }
     }
     
     /// 設定數值的安全大小範圍 (記錄的高度) => 0 ~ 最大高度
     /// - Parameter touchPointConstant: CGFloat
     /// - Returns: CGFloat
-    private func safeTouchPointConstant(_ touchPointConstant: CGFloat) -> CGFloat {
+    private func safeTouchPointConstant(_ touchPointConstant: CGFloat, isVertical: Bool) -> CGFloat {
         
-        if (touchPointConstant > contentView.frame.height) { return contentView.frame.height }
-        if (touchPointConstant < 0) { return 0 }
+        let maximumTouchPointConstant = maximumTouchPointConstantMaker(isVertical: isVertical)
+
+        if (touchPointConstant > maximumTouchPointConstant) { return maximumTouchPointConstant }
+        if (touchPointConstant < .zero) { return .zero }
         
         return touchPointConstant
     }
     
-    /// 設定數值的安全大小範圍 (顯示的高度) => 0 ~ 最大高度
-    /// - Parameter touchPointConstant: CGFloat
-    /// - Returns: CGFloat
-    private func safeHeightConstraint(_ touchPointConstant: CGFloat, progressType: ProgressType) -> CGFloat {
+    /// 產生出分段的安全高度Constraint (一格一格的)
+    /// - Returns: CGFloat?
+    /// - Parameters:
+    ///   - count: 正整數
+    ///   - touchPointConstant: 真正的所點的高度
+    ///   - isVertical: 水平 / 垂直
+    private func safeSegmentedConstraint(_ count: UInt, touchPointConstant: CGFloat, isVertical: Bool) -> CGFloat {
         
-        let _touchPointConstant = safeTouchPointConstant(touchPointConstant)
+        let maximumTouchPointConstant = maximumTouchPointConstantMaker(isVertical: isVertical)
         
-        switch progressType {
-        case .continuous: return _touchPointConstant
-        case .segmented(let count): return segmentedHeightConstraint(count, touchPointConstant: touchPointConstant)
+        let index = Int(touchPointConstant * CGFloat(count) / maximumTouchPointConstant)
+        let value = maximumTouchPointConstant * CGFloat(index) / CGFloat(count)
+        
+        return value
+    }
+    
+    /// 數值改變時的反應 (文字 / 圖形)
+    /// - Parameter value: CGFloat?
+    private func valueChangeAction(_ value: CGFloat, isVertical: Bool) {
+        
+        guard let maximumValue = Optional.some(maximumTouchPointConstantMaker(isVertical: isVertical)),
+              let info = myDeleagte?.valueChange(identifier: identifier, currentValue: value, maximumValue: maximumValue, isVertical: isVertical)
+        else {
+            return
+        }
+        
+        displayLabel.text = info.text
+        
+        if (isVertical) {
+            verticalDisplayImageView.image = info.icon
+        } else {
+            horizontalDisplayImageView.image = info.icon
         }
     }
     
-    /// 數值改變時的反應
-    /// - Parameter value: CGFloat?
-    private func valueChangeAction(_ value: CGFloat) {
-        
-        guard let info = myDeleagte?.valueChange(identifier: identifier, currentValue: value, maximumValue: contentView.frame.height) else { return }
-        
-        displayLabel.text = info.text
-        displayImageView.image = info.icon
+    /// 傳回最大的容許值 (最高 / 最寬)
+    /// - Parameter isVertical: 水平 / 垂直
+    private func maximumTouchPointConstantMaker(isVertical: Bool) -> CGFloat {
+        let constant = isVertical ? contentView.frame.height : contentView.frame.width
+        return constant
     }
     
-    /// 產生出分段的高度Constraint (一格一格的)
-    /// - Parameter count: UInt
-    /// - Parameter touchPointConstant: 真正的所點的高度
-    /// - Returns: CGFloat?
-    private func segmentedHeightConstraint(_ count: UInt, touchPointConstant: CGFloat) -> CGFloat {
-        
-        let index = Int(touchPointConstant * CGFloat(count) / contentView.frame.height)
-        let result = contentView.frame.height * CGFloat(index) / CGFloat(count)
-                
-        return result
-    }
+    /// 清除/還原一些設定值
+    private func clean() { touchPoint.start = nil }
 }

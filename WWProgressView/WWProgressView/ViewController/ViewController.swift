@@ -15,7 +15,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var myProgressView3: ProgressView!
 
     private let count: UInt = 10
-    private let icon: (continuous: UIImage, segmented: UIImage) = (#imageLiteral(resourceName: "SoundOn"), #imageLiteral(resourceName: "WifiOn"))
+    private let icon: (continuous: UIImage, segmented: UIImage, segmented2: UIImage) = (#imageLiteral(resourceName: "SoundOn"), #imageLiteral(resourceName: "WifiOn"), #imageLiteral(resourceName: "BulbOff"))
     
     private enum Identifier: String {
         case continuous = "continuous"
@@ -29,10 +29,10 @@ final class ViewController: UIViewController {
         myProgressView.myDeleagte = self
         myProgressView2.myDeleagte = self
         myProgressView3.myDeleagte = self
-
+        
         myProgressView.configure(id: "\(Identifier.continuous)", initValue: "50%", font: .systemFont(ofSize: 16), icon: icon.continuous, type: .continuous)
-        myProgressView2.configure(id: "\(Identifier.segmented)", initValue: "5/\(count)", font: .systemFont(ofSize: 16), icon: icon.segmented, type: .segmented(count))
-        myProgressView3.configure(id: "\(Identifier.segmented2)", initValue: "0", font: .systemFont(ofSize: 16), icon: icon.segmented, type: .segmented(count))
+        myProgressView2.configure(id: "\(Identifier.segmented)", initValue: "5/\(count)", font: .systemFont(ofSize: 20), icon: icon.segmented, type: .segmented(count))
+        myProgressView3.configure(id: "\(Identifier.segmented2)", initValue: "0", font: .systemFont(ofSize: 24), icon: icon.segmented2, type: .segmented(count))
         
         #if DEBUG
         wwPrint("DEBUG")
@@ -51,7 +51,7 @@ final class ViewController: UIViewController {
 // MARK: - ProgressViewDeleagte
 extension ViewController: ProgressViewDeleagte {
     
-    func valueChange(identifier: String, currentValue: CGFloat, maximumValue: CGFloat) -> ProgressViewDeleagte.ProgressViewInfomation {
+    func valueChange(identifier: String, currentValue: CGFloat, maximumValue: CGFloat, isVertical: Bool) -> ProgressViewDeleagte.ProgressViewInfomation {
         
         guard let identifier = Identifier(rawValue: identifier) else { fatalError() }
         
@@ -63,6 +63,7 @@ extension ViewController: ProgressViewDeleagte {
     }
 }
 
+// MARK: - 測試用
 extension ViewController {
     
     /// 連續的顯示效果

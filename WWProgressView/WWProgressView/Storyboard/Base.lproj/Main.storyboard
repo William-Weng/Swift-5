@@ -18,14 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="Yu7-p2-Vzn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="Yu7-p2-Vzn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gw7-Nu-NTT">
-                                <rect key="frame" x="79" y="248" width="256" height="400"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZbE-6F-bPs">
+                                <rect key="frame" x="117" y="248" width="180" height="300"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0Q-ik-Nwd" customClass="ProgressView" customModule="WWProgressView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="300"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.297555313629358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="precent">
@@ -41,7 +42,7 @@
                                                 <color key="value" systemColor="systemYellowColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
-                                                <real key="value" value="200"/>
+                                                <real key="value" value="150"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
                                                 <real key="value" value="30"/>
@@ -55,10 +56,16 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="contentColor">
                                                 <color key="value" white="0.33333333329999998" alpha="0.10249214431866496" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelHeightPosition">
+                                                <real key="value" value="200"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelWidthPosition">
+                                                <real key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chT-k7-K9Q" customClass="ProgressView" customModule="WWProgressView" customModuleProvider="target">
-                                        <rect key="frame" x="88" y="0.0" width="80" height="400"/>
+                                        <rect key="frame" x="98" y="0.0" width="82" height="300"/>
                                         <color key="backgroundColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="precent">
@@ -74,7 +81,7 @@
                                                 <color key="value" name="AccentColor"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
-                                                <real key="value" value="200"/>
+                                                <real key="value" value="150"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
                                                 <real key="value" value="30"/>
@@ -88,54 +95,66 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="contentColor">
                                                 <color key="value" white="0.33333333329999998" alpha="0.18364783047007865" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3D-hb-RyI" customClass="ProgressView" customModule="WWProgressView" customModuleProvider="target">
-                                        <rect key="frame" x="176" y="0.0" width="80" height="400"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="precent">
-                                                <real key="value" value="300"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="30"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelHeightPosition">
                                                 <real key="value" value="200"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
-                                                <real key="value" value="30"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="labelPosition">
-                                                <real key="value" value="200"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
-                                                <color key="value" systemColor="systemPinkColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="contentColor">
-                                                <color key="value" white="0.33333333329999998" alpha="0.1836478305" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="labelWidthPosition">
+                                                <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="19z-WC-3rM"/>
-                                    <constraint firstAttribute="height" constant="400" id="kDk-q9-jLh"/>
+                                    <constraint firstAttribute="height" constant="300" id="48f-6Y-eC6"/>
+                                    <constraint firstAttribute="width" constant="180" id="ZOB-xS-DM3"/>
                                 </constraints>
                             </stackView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3D-hb-RyI" customClass="ProgressView" customModule="WWProgressView" customModuleProvider="target">
+                                <rect key="frame" x="57" y="598" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901963" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="WK3-pZ-DtD"/>
+                                    <constraint firstAttribute="height" constant="60" id="i7S-I7-ukO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="precent">
+                                        <real key="value" value="300"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="currentValue">
+                                        <real key="value" value="150"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="iconPosition">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" systemColor="systemPinkColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="contentColor">
+                                        <color key="value" white="0.33333333329999998" alpha="0.1836478305" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="labelHeightPosition">
+                                        <real key="value" value="200"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="labelWidthPosition">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Yu7-p2-Vzn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MGE-b5-nNI"/>
-                            <constraint firstItem="Yu7-p2-Vzn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MX2-wn-Bol"/>
-                            <constraint firstAttribute="bottom" secondItem="Yu7-p2-Vzn" secondAttribute="bottom" id="X99-qa-ejY"/>
-                            <constraint firstItem="gw7-Nu-NTT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eCm-d7-DIR"/>
-                            <constraint firstItem="Yu7-p2-Vzn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hBo-ut-ZeL"/>
-                            <constraint firstItem="gw7-Nu-NTT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t1U-31-j5F"/>
+                            <constraint firstItem="ZbE-6F-bPs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3pz-nB-BVE"/>
+                            <constraint firstItem="M3D-hb-RyI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6tY-9U-7fe"/>
+                            <constraint firstItem="M3D-hb-RyI" firstAttribute="top" secondItem="ZbE-6F-bPs" secondAttribute="bottom" constant="50" id="xtc-FN-Lzy"/>
+                            <constraint firstItem="ZbE-6F-bPs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="zxE-vA-BgN"/>
                         </constraints>
                     </view>
                     <connections>
