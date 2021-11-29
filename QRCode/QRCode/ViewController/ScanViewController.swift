@@ -12,10 +12,29 @@ import WWPrint
 public protocol ScanDelegate: AnyObject {
     
     /// [取得掃瞄到的結果](https://ithelp.ithome.com.tw/articles/10197599)
-    func metadataOutput(_ output: AVMetadataMachineReadableCodeObject)
+    func metadataOutput(_ result: Result<AVMetadataMachineReadableCodeObject, Error>)
 }
 
 final class ScanViewController: UIViewController {
+    
+    /// 自訂錯誤
+    enum MyError: Error, LocalizedError {
+        
+        var errorDescription: String { errorMessage() }
+
+        case unknown
+        case notSupports
+        
+        /// 顯示錯誤說明
+        /// - Returns: String
+        private func errorMessage() -> String {
+
+            switch self {
+            case .unknown: return "未知錯誤"
+            case .notSupports: return "該手機不支援"
+            }
+        }
+    }
     
     private let captureSession = AVCaptureSession()
     private let captureMetadataOutput = AVCaptureMetadataOutput()
@@ -35,14 +54,14 @@ final class ScanViewController: UIViewController {
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        
+                
         guard let metadataObject = metadataObjects.first,
               let transformedMetadataObject = previewLayer?.transformedMetadataObject(for: metadataObject) as? AVMetadataMachineReadableCodeObject
         else {
-            return
+            myDelegate?.metadataOutput(.failure(MyError.notSupports)); return
         }
         
-        myDelegate?.metadataOutput(transformedMetadataObject)
+        myDelegate?.metadataOutput(.success(transformedMetadataObject))
     }
 }
 
@@ -54,6 +73,12 @@ extension ScanViewController {
         scanTypes = types
         myDelegate = delegate
     }
+    
+    /// [開啟掃瞄](http://www.appsbarcode.com/code%20128.php)
+    public func startRunning() { captureSession.startRunning() }
+    
+    /// [關閉掃瞄](https://www.cool3c.com/article/150348)
+    public func stopRunning() { captureSession.stopRunning() }
 }
 
 // MARK: - 小工具
@@ -75,7 +100,6 @@ extension ScanViewController {
         self.previewLayer = previewLayer
         
         qrcodeOutputSetting(types: scanTypes)
-        captureSession.startRunning()
     }
     
     /// [AVCaptureMetadataOutputObjectsDelegate](https://developer.apple.com/documentation/avfoundation/avcapturemetadataoutputobjectsdelegate/1389481-metadataoutput)

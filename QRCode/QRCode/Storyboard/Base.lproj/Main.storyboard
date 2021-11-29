@@ -23,13 +23,13 @@
                                     <segue destination="MPW-xa-Tgh" kind="embed" identifier="QRCodeSegue" id="UrO-Sc-Liv"/>
                                 </connections>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRCode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yK-QL-gmd">
-                                <rect key="frame" x="148" y="429" width="118.5" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRCode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yK-QL-gmd">
+                                <rect key="frame" x="20" y="818" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="systemGray6Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QRCode2" translatesAutoresizingMaskIntoConstraints="NO" id="src-OV-fHV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QRCode" translatesAutoresizingMaskIntoConstraints="NO" id="src-OV-fHV">
                                 <rect key="frame" x="40" y="281" width="334" height="334"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="src-OV-fHV" secondAttribute="height" multiplier="1:1" id="4Av-Ir-eBf"/>
@@ -39,19 +39,29 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
+                            <constraint firstItem="6yK-QL-gmd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AU5-uC-Tra"/>
                             <constraint firstItem="cXc-HC-ks9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fd8-wv-hft"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="src-OV-fHV" secondAttribute="trailing" constant="40" id="KWJ-d9-d6x"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6yK-QL-gmd" secondAttribute="trailing" constant="20" id="LAR-wy-tBq"/>
                             <constraint firstItem="cXc-HC-ks9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qkc-ui-Dft"/>
-                            <constraint firstItem="6yK-QL-gmd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UVs-PU-vkh"/>
                             <constraint firstItem="src-OV-fHV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="gID-EG-VKq"/>
                             <constraint firstAttribute="bottom" secondItem="cXc-HC-ks9" secondAttribute="bottom" id="gzs-1h-pij"/>
                             <constraint firstItem="src-OV-fHV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kZ7-4B-bs5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6yK-QL-gmd" secondAttribute="bottom" constant="20" id="sfp-t3-sgX"/>
                             <constraint firstItem="cXc-HC-ks9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uoh-dD-D0e"/>
-                            <constraint firstItem="6yK-QL-gmd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="z1D-tq-h1T"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="QRCode" id="nvs-zi-2RQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="9OU-Vf-IEc"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="6oD-fG-Nco">
+                            <connections>
+                                <action selector="stopRunning:" destination="BYZ-38-t0r" id="jUr-Ek-Kn0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="9OU-Vf-IEc">
+                            <connections>
+                                <action selector="startRunning:" destination="BYZ-38-t0r" id="pxO-Fj-e1U"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="qrCodeImageView" destination="src-OV-fHV" id="5kS-gW-EtC"/>
@@ -97,7 +107,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="QRCode2" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="QRCode" width="170.66667175292969" height="170.66667175292969"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
