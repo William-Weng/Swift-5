@@ -102,3 +102,8 @@
 ## WWProgressView - 仿iOS13的音量調節元件
 ![WWProgressView - 仿iOS13的音量調節元件](./_Gif_/WWProgressView.gif)
 
+## QRCode - QRCode基本使用
+![QRCode - QRCode基本使用](./_Gif_/QRCode.gif)
+
+
+
