@@ -41,6 +41,7 @@ final class ScanViewController: UIViewController {
     
     private var scanTypes: [AVMetadataObject.ObjectType] = [.qr]
     private var previewLayer: AVCaptureVideoPreviewLayer?
+    private var callbackQueue: DispatchQueue? = .main
     
     private weak var myDelegate: ScanDelegate?
 
@@ -69,9 +70,14 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
 extension ScanViewController {
     
     /// [設定可以掃到的類型](https://www.appcoda.com.tw/qr-code-reader-swift/)
-    public func configure(types: [AVMetadataObject.ObjectType], delegate: ScanDelegate) {
+    /// - Parameters:
+    ///   - types: 設定可以掃到的類型
+    ///   - delegate: ScanDelegate
+    ///   - queue: DispatchQueue?
+    public func configure(types: [AVMetadataObject.ObjectType], delegate: ScanDelegate, queue: DispatchQueue? = .main) {
         scanTypes = types
         myDelegate = delegate
+        callbackQueue = queue
     }
     
     /// [開啟掃瞄](http://www.appsbarcode.com/code%20128.php)
@@ -104,7 +110,7 @@ extension ScanViewController {
     
     /// [AVCaptureMetadataOutputObjectsDelegate](https://developer.apple.com/documentation/avfoundation/avcapturemetadataoutputobjectsdelegate/1389481-metadataoutput)
     private func qrcodeOutputSetting(types : [AVMetadataObject.ObjectType]) {
-        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: .main)
+        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: callbackQueue)
         captureMetadataOutput.metadataObjectTypes = types
     }
 }

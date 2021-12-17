@@ -50,7 +50,7 @@ extension AVCaptureSession {
         
         return previewLayer
     }
- 
+    
     /// 將影音的Input加入Session
     /// - Parameter input: AVCaptureInput
     /// - Returns: Bool
