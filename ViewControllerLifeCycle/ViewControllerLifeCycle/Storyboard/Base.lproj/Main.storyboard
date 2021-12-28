@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="orP-kz-nE8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--測試-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ViewControllerLifeCycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="測試" id="nvs-zi-2RQ">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Storyboard" id="CfW-VF-0U7">
+                                <connections>
+                                    <action selector="showStoryboardViewController:" destination="BYZ-38-t0r" id="FA2-T6-vfe"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Segue" style="plain" id="zoV-zn-FGs">
+                                <connections>
+                                    <action selector="showSegueViewController:" destination="BYZ-38-t0r" id="bgV-iF-Rlv"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Class" id="9wA-8p-f5V">
+                                <connections>
+                                    <action selector="showClassViewController:" destination="BYZ-38-t0r" id="nYp-kL-d5A"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Xib" id="rwg-MP-rgO">
+                                <connections>
+                                    <action selector="showXibViewController:" destination="BYZ-38-t0r" id="OB2-eo-2bR"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="xIL-9v-QGt" kind="show" identifier="StoryboardSegue" id="IXS-sl-PE0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908.6956521739135" y="93.75"/>
+        </scene>
+        <!--View Controller Segue-->
+        <scene sceneID="Ov5-c2-AZF">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="xIL-9v-QGt" customClass="ViewControllerSegue" customModule="ViewControllerLifeCycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9HN-PO-oFC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewControllerSegue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-3s-zWN">
+                                <rect key="frame" x="126.5" y="437.5" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="58h-AO-UpV"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="b1v-3s-zWN" firstAttribute="centerX" secondItem="9HN-PO-oFC" secondAttribute="centerX" id="crD-zc-MFL"/>
+                            <constraint firstItem="b1v-3s-zWN" firstAttribute="centerY" secondItem="9HN-PO-oFC" secondAttribute="centerY" id="edD-oy-E3h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Gb-Q5-wxM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="Eww-ah-6Qs">
+                            <connections>
+                                <segue destination="koK-Vz-gNh" kind="show" id="7Ck-9e-0yH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOS-Ok-S3i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3912" y="94"/>
+        </scene>
+        <!--View Controller Storyboard-->
+        <scene sceneID="tYa-a5-1vj">
+            <objects>
+                <viewController storyboardIdentifier="ViewControllerStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="koK-Vz-gNh" customClass="ViewControllerStoryboard" customModule="ViewControllerLifeCycle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="urS-OE-eb1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewControllerStoryboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0n-5w-3q3">
+                                <rect key="frame" x="108.5" y="437.5" width="197" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oik-n4-Rgh"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="t0n-5w-3q3" firstAttribute="centerY" secondItem="urS-OE-eb1" secondAttribute="centerY" id="XNg-am-5yF"/>
+                            <constraint firstItem="t0n-5w-3q3" firstAttribute="centerX" secondItem="urS-OE-eb1" secondAttribute="centerX" id="zgY-X3-Rbm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="J6a-TL-yR2">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="6iD-TM-ei7"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yc2-18-6h6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4905.7971014492759" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5Td-Ig-6yp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="orP-kz-nE8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QZn-Vu-KLo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DTs-MM-94I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TaK-Lo-6Nx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933.3333333333335" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
