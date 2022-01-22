@@ -105,5 +105,6 @@
 ## QRCode - QRCode基本使用
 ![QRCode - QRCode基本使用](./_Gif_/QRCode.gif)
 
-
+## DetectFace - 人臉辨識
+![DetectFace - 人臉辨識](./_Gif_/DetectFace.gif)
 
