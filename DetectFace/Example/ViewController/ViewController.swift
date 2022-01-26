@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
     private let captureVideoDataOutput = AVCaptureVideoDataOutput()
     
     private var previewLayer: AVCaptureVideoPreviewLayer?
-    private var tempLayers: [CALayer] = []
+    private var boxLayers: [CALayer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,9 @@ private extension ViewController {
               let input = try? device._captureInput().get(),
               let _previewLayer = Optional.some(session._previewLayer(with: view.bounds, videoGravity: .resize)),
               session._canAddInput(input),
-              session._canAddOutput(captureVideoDataOutput)
+              session._canAddOutput(captureVideoDataOutput),
+              session._canSetVideoResolution(.hd1920x1080),
+              captureVideoDataOutput._videoOrientationSetting(.portrait)
         else {
             return false
         }
@@ -66,27 +68,32 @@ private extension ViewController {
     }
     
     /// 影片人臉標示
+    /// - Parameter buffer: CMSampleBuffer
     func faceRectanglesBoxing(with buffer: CMSampleBuffer) {
         
-        guard let image = buffer._uiImage()?._normalized() else { return }
-        
-        DispatchQueue.main.async {
+        self.previewLayer?._detectFaceLandmarksBox(with: buffer, orientation: .leftMirrored) { result in
             
-            self.tempLayers._removeFromSuperlayer()
-            self.tempLayers.removeAll()
+            self.boxLayers._removeFromSuperlayer()
+            self.boxLayers = []
             
-            image._detectFaceRectanglesBox(mirrorTo: self.myImageView.frame) { result in
+            switch result {
+            case .failure(let error): wwPrint(error)
+            case .success(let frames):
                 
-                switch result {
-                case .failure(let error): wwPrint(error)
-                case .success(let frames):
-                                        
-                    guard let frames = frames else { return }
+                guard let frames = frames else { return }
+                
+                frames.forEach { frame in
                     
-                    frames.forEach { frame in
-                        let rectLayer = CALayer()._frame(frame)._borderColor(.red)._borderWidth(2.0)._backgroundColor(.yellow)
-                        self.tempLayers.append(rectLayer)
-                        self.view.layer.addSublayer(rectLayer)
+                    let shapeLayer = CAShapeLayer()
+                    
+                    shapeLayer.path = CGPath(rect: frame, transform: nil)
+                    shapeLayer.fillColor = UIColor.clear.cgColor
+                    shapeLayer.strokeColor = UIColor.green.cgColor
+                    
+                    self.boxLayers.append(shapeLayer)
+                    
+                    DispatchQueue.main.async {
+                        self.view.layer.addSublayer(shapeLayer)
                     }
                 }
             }

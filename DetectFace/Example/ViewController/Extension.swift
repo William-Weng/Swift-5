@@ -349,6 +349,66 @@ extension AVCaptureSession {
         guard self.canAddOutput(output) else { return false }
         self.addOutput(output); return true
     }
+    
+    /// [設定輸出的解析度](https://www.itread01.com/hklecii.html)
+    /// - Parameter sessionPreset: [AVCaptureSession.Preset](https://developer.apple.com/documentation/avfoundation/avcapturesession/1389696-sessionpreset)
+    func _canSetVideoResolution(_ sessionPreset: AVCaptureSession.Preset = .hd1920x1080) -> Bool {
+        
+        guard self.canSetSessionPreset(sessionPreset) else { return false }
+        
+        self.sessionPreset = sessionPreset
+        return true
+    }
+}
+
+// MARK: - AVCaptureVideoDataOutput (class function)
+extension AVCaptureVideoDataOutput {
+    
+    /// [設定影片的輸出方向](https://www.codenong.com/3823461/)
+    /// - Parameter orientation: [AVCaptureVideoOrientation](https://medium.com/onfido-tech/live-face-tracking-on-ios-using-vision-framework-adf8a1799233)
+    /// - Returns: Bool
+    func _videoOrientationSetting(_ orientation: AVCaptureVideoOrientation = .portrait) -> Bool {
+        
+        guard let connection = self.connection(with: .video),
+              connection.isVideoOrientationSupported
+        else {
+            return false
+        }
+
+        connection.videoOrientation = orientation
+        return true
+    }
+}
+
+// MARK: - AVCaptureVideoPreviewLayer (class function)
+extension AVCaptureVideoPreviewLayer {
+    
+    /// [由captureOutput(_:didOutput:from:)取得的CMSampleBuffer => 測檢人臉在PreviewLayer上的位置](https://stackoverflow.com/questions/44698368/layerrectconvertedfrommetadataoutputrect-issue)
+    /// - Parameters:
+    ///   - cmSampleBuffer: [CMSampleBuffer](https://medium.com/onfido-tech/live-face-tracking-on-ios-using-vision-framework-adf8a1799233)
+    ///   - orientation: [UIImage.Orientation](https://machinethink.net/blog/bounding-boxes/)
+    ///   - result: [Result<[CGRect]?, Error>](https://developer.apple.com/documentation/avfoundation/avcapturevideodataoutputsamplebufferdelegate/1385775-captureoutput)
+    func _detectFaceLandmarksBox(with cmSampleBuffer: CMSampleBuffer, orientation: UIImage.Orientation = .leftMirrored, result: @escaping (Result<[CGRect]?, Error>) -> ()) {
+        
+        guard let bufferImage = cmSampleBuffer._uiImage(scale: UIScreen.main.scale, orientation: orientation),
+              let normalizedImage = bufferImage._normalized()
+        else {
+            result(.failure(Constant.MyError.notImage)); return
+        }
+        
+        normalizedImage._detectFaceLandmarksResult { _result in
+            
+            switch _result {
+            case .failure(let error): result(.failure(error))
+            case .success(let faces):
+                
+                guard let faces = faces, !faces.isEmpty else { result(.success(nil)); return }
+                
+                let faceBoundingBoxOnScreens = faces.map { self.layerRectConverted(fromMetadataOutputRect: $0.boundingBox) }
+                result(.success(faceBoundingBoxOnScreens))
+            }
+        }
+    }
 }
 
 // MARK: - VNFaceObservation (class function)
