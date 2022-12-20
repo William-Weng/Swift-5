@@ -108,3 +108,6 @@
 ## DetectFace - 人臉辨識
 ![DetectFace - 人臉辨識](./_Gif_/DetectFace.gif)
 
+## FloatButton - 浮動彈出按鈕
+![FloatButton - 浮動彈出按鈕](./_Gif_/FloatButton.gif)
+

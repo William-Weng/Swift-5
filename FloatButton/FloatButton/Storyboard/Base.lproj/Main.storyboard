@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FloatButton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="desktop_1" translatesAutoresizingMaskIntoConstraints="NO" id="PaI-i0-Jzh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Diw-Mq-HFo" customClass="WWFloatButton" customModule="FloatButton" customModuleProvider="target">
+                                <rect key="frame" x="311" y="591" width="56" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Diw-Mq-HFo" secondAttribute="height" multiplier="1:1" id="DjG-f1-b06"/>
+                                    <constraint firstAttribute="width" constant="56" id="l3L-Da-ntg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemButtonCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="itemGap">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
+                                        <real key="value" value="0.25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="touchedImage" value="main"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="disableImage" value="main"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="itemBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.57647058819999997" green="0.75294117650000003" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PaI-i0-Jzh" secondAttribute="trailing" id="FDX-7I-4FW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Diw-Mq-HFo" secondAttribute="bottom" constant="20" id="HBn-Xh-yv2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Diw-Mq-HFo" secondAttribute="trailing" constant="8" id="nfh-ak-CHZ"/>
+                            <constraint firstAttribute="bottom" secondItem="PaI-i0-Jzh" secondAttribute="bottom" id="oFf-jr-yyF"/>
+                            <constraint firstItem="PaI-i0-Jzh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tNh-ME-8OC"/>
+                            <constraint firstItem="PaI-i0-Jzh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y1S-Bc-AtY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nvs-zi-2RQ"/>
+                    <connections>
+                        <outlet property="myFloatButton" destination="Diw-Mq-HFo" id="6vA-rf-u67"/>
+                        <outlet property="myImageView" destination="PaI-i0-Jzh" id="ChP-Sf-cpv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023.1884057971015" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="desktop_1" width="188" height="333.33334350585938"/>
+        <image name="main" width="128" height="128"/>
+    </resources>
+</document>
