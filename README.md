@@ -113,3 +113,7 @@
 
 ## MapViewCluster - MapKit初體驗
 ![MapViewCluster - MapKit初體驗](./_Gif_/MapViewCluster.gif)
+
+## ThreadSafety - 執行緒安全
+![ThreadSafety - 執行緒安全](./_Gif_/ThreadSafety.gif)
+
