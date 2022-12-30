@@ -1,0 +1,9 @@
+{
+  "coordinates": [
+    { "title": "台北101", "subTitle": "11", "address": "臺北市信義區信義路五段7號", "image": "SnowBall", "latitude": 25.033976, "longitude": 121.5623502, "cluster": "A" },
+    { "title": "台北102", "subTitle": "22", "address": "臺北市信義區信義路五段17號", "image": "SnowBall", "latitude": 25.034976, "longitude": 121.5633502, "cluster": "A" },
+    { "title": "台北103", "subTitle": "33", "address": "臺北市信義區信義路五段27號", "image": "SnowBall", "latitude": 25.035976, "longitude": 121.5643502, "cluster": "B" },
+    { "title": "台北104", "subTitle": "44", "address": "臺北市信義區信義路五段37號", "image": "SnowBall", "latitude": 25.036976, "longitude": 121.5653502, "cluster": "B" },
+    { "title": "台北105", "subTitle": "55", "address": "臺北市信義區信義路五段47號", "image": "SnowBall", "latitude": 25.037976, "longitude": 121.5663502, "cluster": "C" }
+  ]
+}

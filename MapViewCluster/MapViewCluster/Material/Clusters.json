@@ -1,0 +1,7 @@
+{
+  "clusters": {
+    "A": { "pinColor": "#FF0000FF", "backgroundColor": "#FFFF00FF", "generalImage": "PinOn", "selectedImage": "PinOff" },
+    "B": { "pinColor": "#FFFFFFFF", "backgroundColor": "#FF00FFFF", "generalImage": "PinOn", "selectedImage": "PinOff" },
+    "C": { "pinColor": "#FF00FFFF", "backgroundColor": "#00FFFFFF", "generalImage": "PinOn", "selectedImage": "PinOff" }
+  }
+}
