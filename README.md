@@ -117,5 +117,5 @@
 ## ThreadSafety - 執行緒安全
 ![ThreadSafety - 執行緒安全](./_Gif_/ThreadSafety.gif)
 
-## 仿蝦皮DM推播換頁功能 
+## PushNotificationChangeView - 仿蝦皮DM推播換頁功能 
 ![PushNotificationChangeView - 仿蝦皮DM推播換頁功能](./_Gif_/PushNotificationChangeView.gif)
