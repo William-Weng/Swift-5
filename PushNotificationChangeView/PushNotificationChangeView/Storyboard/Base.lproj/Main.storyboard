@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dyl-0f-9pf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PushNotificationChangeView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Desktop_1" translatesAutoresizingMaskIntoConstraints="NO" id="4qF-zJ-vpl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4qF-zJ-vpl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Hc8-XD-NaK"/>
+                            <constraint firstAttribute="bottom" secondItem="4qF-zJ-vpl" secondAttribute="bottom" id="Zy9-J6-wuE"/>
+                            <constraint firstItem="4qF-zJ-vpl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="akv-kT-oMS"/>
+                            <constraint firstItem="4qF-zJ-vpl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lLi-OD-ciT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nvs-zi-2RQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023.1884057971015" y="93.75"/>
+        </scene>
+        <!--尾牙抽獎-->
+        <scene sceneID="0Ph-hO-2cw">
+            <objects>
+                <viewController storyboardIdentifier="DemoViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="heP-nl-qEG" customClass="DemoViewController" customModule="PushNotificationChangeView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PCW-Lk-k1K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Desktop_2" translatesAutoresizingMaskIntoConstraints="NO" id="l6j-KD-Wgr">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《獎品》" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mar-WM-9JM">
+                                <rect key="frame" x="143" y="429" width="128" height="38.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="32"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-員工-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKg-Ny-M6Y">
+                                <rect key="frame" x="157" y="367" width="100.5" height="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mkr-I1-L9q"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="mar-WM-9JM" firstAttribute="top" secondItem="EKg-Ny-M6Y" secondAttribute="bottom" constant="20" id="20T-WX-m6h"/>
+                            <constraint firstItem="l6j-KD-Wgr" firstAttribute="leading" secondItem="Mkr-I1-L9q" secondAttribute="leading" id="Fq2-Ow-ezi"/>
+                            <constraint firstAttribute="bottom" secondItem="l6j-KD-Wgr" secondAttribute="bottom" id="LPQ-cX-Efx"/>
+                            <constraint firstItem="l6j-KD-Wgr" firstAttribute="top" secondItem="PCW-Lk-k1K" secondAttribute="top" id="O9k-4q-Qwa"/>
+                            <constraint firstItem="mar-WM-9JM" firstAttribute="centerX" secondItem="PCW-Lk-k1K" secondAttribute="centerX" id="P0Y-S2-m8l"/>
+                            <constraint firstItem="EKg-Ny-M6Y" firstAttribute="centerX" secondItem="PCW-Lk-k1K" secondAttribute="centerX" id="iXQ-vN-YBG"/>
+                            <constraint firstItem="l6j-KD-Wgr" firstAttribute="trailing" secondItem="Mkr-I1-L9q" secondAttribute="trailing" id="uBI-gO-sK1"/>
+                            <constraint firstItem="mar-WM-9JM" firstAttribute="centerY" secondItem="PCW-Lk-k1K" secondAttribute="centerY" id="yLV-rF-YAH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="尾牙抽獎" id="vcI-ti-DPa"/>
+                    <connections>
+                        <outlet property="productLabel" destination="mar-WM-9JM" id="33u-yS-WkC"/>
+                        <outlet property="staffLabel" destination="EKg-Ny-M6Y" id="sNc-48-1WM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2N-qH-ecs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="818.97321428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0L2-KY-cli">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dyl-0f-9pf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0CM-fo-0qj">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NaE-jF-wZ5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nue-nb-ZqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113.04347826086958" y="93.75"/>
+        </scene>
+        <!--My Navigation Controller-->
+        <scene sceneID="AnV-fn-dge">
+            <objects>
+                <navigationController storyboardIdentifier="MyNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q1C-1k-3Qc" customClass="MyNavigationController" customModule="PushNotificationChangeView" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="if5-lZ-kMj">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="heP-nl-qEG" kind="relationship" relationship="rootViewController" id="w6a-5W-W61"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efu-Cu-2Wv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113" y="819"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Desktop_1" width="936.33331298828125" height="2027.3333740234375"/>
+        <image name="Desktop_2" width="795.66668701171875" height="1721.6666259765625"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

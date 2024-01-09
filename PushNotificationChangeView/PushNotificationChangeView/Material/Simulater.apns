@@ -1,0 +1,13 @@
+{
+  "Simulator Target Bundle": "idv.william.Example2",
+  "aps": {
+    "alert": {
+      "title": "推播換頁測試",
+      "subtitle": "仿蝦皮APP",
+      "body": "應該有像吧？",
+      "badge": 1
+    }
+  },
+  "staffName": "William.Weng",
+  "productName": "MacBook Pro"
+}
