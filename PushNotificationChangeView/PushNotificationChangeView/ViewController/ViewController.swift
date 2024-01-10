@@ -18,6 +18,43 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         initSetting()
     }
+}
+
+// MARK: - 小工具
+private extension ViewController {
+    
+    /// 初始化設定
+    func initSetting() {
+        
+        guard let myNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "MyNavigationController") as? MyNavigationController,
+              let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        else {
+            return
+        }
+        
+        myNavigationController._modalStyle(transitionStyle: .coverVertical, presentationStyle: .overCurrentContext)
+        myNavigationController.viewControllers = []
+        myNavigationController.navigationBar.tintColor = .black
+        
+        self.myNavigationController = myNavigationController
+        registerNotification()
+        
+        displayProductNameWithUserInfo(appDelegate.userInfo)
+    }
+    
+    /// 顯示獎品名稱
+    /// - Parameter userInfo: 推播收到的資訊
+    func displayProductNameWithUserInfo(_ userInfo: [AnyHashable: Any]?) {
+        
+        guard let userInfo = userInfo,
+              let staffName = userInfo["staffName"] as? String,
+              let productName = userInfo["productName"] as? String
+        else {
+            return
+        }
+        
+        self.displayProductName(productName, staffName: staffName)
+    }
     
     /// 顯示獎品名稱
     /// => 仿蝦皮收到DM推播，一直下一頁顯示
@@ -42,23 +79,6 @@ final class ViewController: UIViewController {
             self.demoViewControllerSetting(demoViewController, productName: productName, staffName: staffName)
         }
     }
-}
-
-// MARK: - 小工具
-private extension ViewController {
-    
-    /// 初始化設定
-    func initSetting() {
-        
-        guard let myNavigationController = self.storyboard?.instantiateViewController(withIdentifier: "MyNavigationController") as? MyNavigationController else { return }
-        
-        myNavigationController._modalStyle(transitionStyle: .coverVertical, presentationStyle: .overCurrentContext)
-        myNavigationController.viewControllers = []
-        myNavigationController.navigationBar.tintColor = .black
-        
-        self.myNavigationController = myNavigationController
-        registerNotification()
-    }
     
     /// 取得同一頁的ViewController
     /// - Returns: DemoViewController
@@ -81,15 +101,8 @@ private extension ViewController {
     func registerNotification() {
         
         NotificationCenter.default._register(name: Self.notificationName) { notification in
-            
-            guard let userInfo = notification.object as? [AnyHashable: Any],
-                  let staffName = userInfo["staffName"] as? String,
-                  let productName = userInfo["productName"] as? String
-            else {
-                return
-            }
-            
-            self.displayProductName(productName, staffName: staffName)
+            guard let userInfo = notification.object as? [AnyHashable: Any] else { return }
+            self.displayProductNameWithUserInfo(userInfo)
         }
     }
 }

@@ -80,9 +80,9 @@
 		3DBCD88726F1992200522E3B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				81AFD6342B4BE60F00F70507 /* DemoViewController.swift */,
 				3DBCD87726F198EF00522E3B /* ViewController.swift */,
 				81AFD6322B4BE4A100F70507 /* MyNavigationController.swift */,
-				81AFD6342B4BE60F00F70507 /* DemoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
